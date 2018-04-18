@@ -1,11 +1,16 @@
+# Build artifacts
 dist/
+
+# Dependency directory
 node_modules/
 
+# Vim
 *.swp
 
-logs
+# Logs
 *.log
 npm-debug.log*
 
+# OS generated
 .DS_Store
 
