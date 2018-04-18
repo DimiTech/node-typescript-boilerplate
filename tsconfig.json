@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist/",
+    "strict": true,
+    "module": "ES6",
+    "target": "ESNext",
+    "sourceMap": true,
+    "baseUrl": "./src/",
+    "paths": {
+      "@app/*": [ "./src/*" ]
+    }
+  }
+}
+

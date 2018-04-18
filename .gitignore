@@ -1,0 +1,11 @@
+dist/
+node_modules/
+
+*.swp
+
+logs
+*.log
+npm-debug.log*
+
+.DS_Store
+
