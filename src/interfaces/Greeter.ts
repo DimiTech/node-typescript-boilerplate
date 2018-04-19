@@ -1,4 +1,3 @@
-export default interface Greeter {
+export default interface IGreeter {
   greet(name: string): void
 }
-
