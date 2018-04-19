@@ -1,0 +1,14 @@
+{
+    "defaultSeverity": "error",
+    "extends": [
+        "tslint:recommended"
+    ],
+    "rules": {
+      "semicolon": false,
+      "no-console": {
+        "severity": "warn"
+      },
+      "quotemark": [ true, "single", "avoid-escape" ]
+    },
+    "rulesDirectory": []
+}

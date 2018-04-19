@@ -4,6 +4,7 @@
   "description": "",
   "main": "main.js",
   "scripts": {
+    "lint": "tslint ./src/**/*.ts",
     "build": "webpack",
     "start": "node ./dist/app",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -12,6 +13,7 @@
   "license": "ISC",
   "devDependencies": {
     "ts-loader": "^4.2.0",
+    "tslint": "^5.9.1",
     "typescript": "^2.8.1",
     "webpack": "^4.6.0",
     "webpack-cli": "^2.0.14"
