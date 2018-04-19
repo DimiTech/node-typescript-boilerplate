@@ -10,3 +10,10 @@ npm run build
 npm start
 ```
 
+## Check for TypeScript validity:
+
+TS compilation should run without errors:
+
+```
+npx tsc -p tsconfig.json
+```

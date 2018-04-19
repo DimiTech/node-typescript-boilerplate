@@ -7,7 +7,7 @@
     "sourceMap": true,
     "baseUrl": "./src/",
     "paths": {
-      "@app/*": [ "./src/*" ]
+      "@app/*": [ "./app/*" ]
     }
   }
 }
