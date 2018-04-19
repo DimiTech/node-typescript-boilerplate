@@ -4,8 +4,9 @@ dist/
 # Dependency directory
 node_modules/
 
-# Vim
+# Code editors
 *.swp
+.vscode/
 
 # Logs
 *.log
