@@ -1,8 +1,16 @@
-.PHONY: deploy-dev
+.PHONY: start clean-build clean-modules
 
-deploy-dev: build-dev
-	echo 'Deploying to development servers...'
-	# TODO: Write the deployment script.
+start: clean-build node_modules build
+	npm start
 
-build-dev: 
-	npm run build -- --mode development
+build:
+	npm run build -- --mode production
+
+node_modules:
+	npm i
+
+clean-build:
+	rm -rf build/
+
+clean-modules:
+	rm -rf node_modules/

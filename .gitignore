@@ -1,5 +1,5 @@
 # Build artifacts
-dist/
+build/
 
 # Dependency directory
 node_modules/

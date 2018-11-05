@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "outDir": "./dist/",
+    "outDir": "./build/",
     "strict": true,
     "module": "ES6",
     "target": "ESNext",

@@ -6,12 +6,13 @@
   "scripts": {
     "lint": "tslint ./src/**/*.ts",
     "build": "webpack",
-    "start": "node ./dist/app",
+    "start": "node -r source-map-support/register ./build/app",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Dušan Dimitrić <dusan_dimitric@yahoo.com",
   "license": "ISC",
   "devDependencies": {
+    "source-map-support": "^0.5.9",
     "ts-loader": "^5.3.0",
     "tslint": "^5.11.0",
     "typescript": "^3.1.6",
