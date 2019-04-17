@@ -33,9 +33,9 @@ build: clean
 clean:
 	rm -rf build/
 
-production-bundle: lint clean-modules node_modules build
+production-bundle: clean-modules node_modules lint build
 
-test: lint node_modules build
+test: node_modules lint build
 	npm start | tail -1 | grep -w -e '^Hello World!$$' && \
 		echo $(GREEN)*********************************** PASSED ************************************$(NC) || \
 		echo $(RED)*********************************** FAILED ************************************$(NC)
