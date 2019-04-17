@@ -1,6 +1,7 @@
 MAKEFLAGS += --silent
 .PHONY: watch start clean clean-modules production-bundle
 
+# TODO: Remove once real tests are in place
 # Terminal colors
 GREEN = '\033[0;32m'
 RED   = '\033[0;31m'
@@ -36,6 +37,7 @@ clean:
 production-bundle: clean-modules node_modules lint build
 
 test: node_modules lint build
+	# TODO: Remove once real tests are in place
 	npm start | tail -1 | grep -w -e '^Hello World!$$' && \
 		echo $(GREEN)*********************************** PASSED ************************************$(NC) || \
 		echo $(RED)*********************************** FAILED ************************************$(NC)
