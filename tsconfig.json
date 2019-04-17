@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "outDir": "./build/",
+    "incremental": true,
     "strict": true,
     "module": "ES6",
     "target": "ESNext",

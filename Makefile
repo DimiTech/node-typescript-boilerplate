@@ -1,16 +1,25 @@
-.PHONY: start clean-build clean-modules
+.PHONY: watch start clean clean-modules production-bundle
 
-start: clean-build node_modules build
+watch: clean node_modules watch
+	npm run build -- -w --mode development
+
+start: node_modules build
 	npm start
 
-build:
-	npm run build -- --mode production
-
 node_modules:
-	npm i
-
-clean-build:
-	rm -rf build/
+ifeq ($(MAKECMDGOALS), production-bundle)
+	npm ci
+else
+	npm install
+endif
 
 clean-modules:
 	rm -rf node_modules/
+
+build: clean
+	npm run build -- --mode production
+
+clean:
+	rm -rf build/
+
+production-bundle: clean-modules node_modules build
