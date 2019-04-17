@@ -7,6 +7,9 @@
     "target": "ESNext",
     "sourceMap": true,
     "baseUrl": "./src/",
+    "types": [
+      "node"
+    ],
     "paths": {
       "@app/*": [ "./app/*" ]
     }

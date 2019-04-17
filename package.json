@@ -12,6 +12,7 @@
   "author": "Dušan Dimitrić <dusan_dimitric@yahoo.com",
   "license": "ISC",
   "devDependencies": {
+    "@types/node": "^11.13.4",
     "source-map-support": "^0.5.12",
     "ts-loader": "^5.3.3",
     "tslint": "^5.16.0",
