@@ -1,12 +1,13 @@
 {
   "compilerOptions": {
+    "baseUrl": "./src/",
     "outDir": "./build/",
     "incremental": true,
     "strict": true,
-    "module": "ES6",
+    "module": "commonjs",
     "target": "ESNext",
     "sourceMap": true,
-    "baseUrl": "./src/",
+    "resolveJsonModule": true,
     "types": [
       "node"
     ],
