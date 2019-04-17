@@ -36,6 +36,6 @@ clean:
 production-bundle: lint clean-modules node_modules build
 
 test: lint node_modules build
-	npm start | tail -1 | grep 'Hello World!' && \
+	npm start | tail -1 | grep -w -e '^Hello World!$$' && \
 		echo $(GREEN)*********************************** PASSED ************************************$(NC) || \
-		echo $(RED  )*********************************** FAILED ************************************$(NC)
+		echo $(RED)*********************************** FAILED ************************************$(NC)
