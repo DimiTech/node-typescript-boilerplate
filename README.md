@@ -6,23 +6,19 @@ A starting point for Node.js projects written in TypeScript.
 
 ```
 make
-```
-
-## Check for TypeScript validity:
-
-TS compilation should run without errors:
-
-```
-npx tsc -p tsconfig.json
+make start
 ```
 
 ## What this boilerplate includes?
 
 ```
+- Node.js environment
+- ES6 Modules
 - Source Map Support
 - Absolute path imports
+- Watcher
+- Linting
 - Test harness  (TODO: Implement)
-- Watcher       (TODO: Implement)
-- Dockerization (TODO: Implement)
 - Validation    (TODO: Implement)
+- Dockerization (TODO: Implement)
 ```
