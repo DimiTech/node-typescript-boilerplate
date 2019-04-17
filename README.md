@@ -21,6 +21,8 @@ npx tsc -p tsconfig.json
 ```
 - Source Map Support
 - Absolute path imports
+- Test harness  (TODO: Implement)
 - Watcher       (TODO: Implement)
 - Dockerization (TODO: Implement)
+- Validation    (TODO: Implement)
 ```
