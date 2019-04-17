@@ -14,6 +14,7 @@ make start
 ```
 - Node.js environment
 - ES6 Modules
+- Dependency Injection
 - Source Map Support
 - Absolute path imports
 - Watcher
