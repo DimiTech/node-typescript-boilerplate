@@ -4,6 +4,7 @@
       "tslint:recommended"
     ],
     "rules": {
+      "ordered-imports": false,
       "semicolon": [ true, "never" ],
       "no-console": {
         "severity": "warn"
