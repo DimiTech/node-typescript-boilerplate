@@ -14,7 +14,7 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: [ '.ts' ],
+    extensions: [ '.ts', '.js' ],
     alias: {
       '@app': path.resolve(__dirname, 'src', 'app'),
     }
