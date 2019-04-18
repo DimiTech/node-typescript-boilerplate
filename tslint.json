@@ -4,13 +4,16 @@
       "tslint:recommended"
     ],
     "rules": {
-      "object-literal-sort-keys": false,
-      "ordered-imports": false,
-      "semicolon": [ true, "never" ],
       "no-console": {
         "severity": "warn"
       },
-      "quotemark": [ true, "single", "avoid-escape" ]
+      "ordered-imports": false,
+      "semicolon": [ true, "never" ],
+      "quotemark": [ true, "single", "avoid-escape" ],
+      "variable-name": [ "allow-leading-underscore" ],
+      "object-literal-sort-keys": false,
+      "arrow-parens": ["error", "as-needed"],
+      "brace-style": ["error", "stroustrup"]
     },
     "rulesDirectory": []
 }
