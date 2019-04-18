@@ -9,8 +9,11 @@
     "sourceMap": true,
     "resolveJsonModule": true,
     "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "lib": ["ES6"],
     "types": [
-      "node"
+      "node",
+      "reflect-metadata"
     ],
     "paths": {
       "@app/*": [ "./app/*" ]

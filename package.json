@@ -28,6 +28,8 @@
     "webpack-cli": "^3.3.0"
   },
   "dependencies": {
-    "source-map-support": "^0.5.12"
+    "source-map-support": "^0.5.12",
+    "inversify": "^5.0.1",
+    "reflect-metadata": "^0.1.13"
   }
 }
