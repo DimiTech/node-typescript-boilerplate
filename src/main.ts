@@ -1,8 +1,8 @@
 import 'reflect-metadata'
 
-import { container, TYPES } from '../inversify.config'
+import { container, TYPES } from '@infrastructure/inversify.config'
 
-import IGreeter from '@app/domain/IGreeter'
+import App from '@app/App'
 
-const g = container.get<IGreeter>(TYPES.IGreeter)
-g.greet('World')
+const app = container.get<App>(TYPES.App)
+app.run()
