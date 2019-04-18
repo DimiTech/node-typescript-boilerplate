@@ -1,10 +1,14 @@
 import { Container } from 'inversify'
-import IGreeter from './src/app/domain/IGreeter'
-import Greeter from './src/app/domain/Greeter'
 
 export const TYPES = {
   IGreeter: Symbol.for('IGreeter'),
+  App: Symbol.for('App'),
 }
+
+import App from '@app/App'
+import IGreeter from '@app/domain/IGreeter'
+import Greeter from '@app/domain/Greeter'
 
 export const container = new Container()
 container.bind<IGreeter>(TYPES.IGreeter).to(Greeter)
+container.bind<App>(TYPES.App).to(App)
