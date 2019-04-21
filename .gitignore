@@ -12,5 +12,9 @@ node_modules/
 *.log
 npm-debug.log*
 
+# Archives
+*.bz2
+*.tar
+
 # OS generated
 .DS_Store
