@@ -1,3 +1,6 @@
+[![Build
+Status](https://travis-ci.org/DusanDimitric/node-typescript-boilerplate.svg?branch=master)](https://travis-ci.org/DusanDimitric/node-typescript-boilerplate)
+
 # node-typescript-boilerplate
 
 A starting point for Node.js projects written in TypeScript.

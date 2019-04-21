@@ -39,5 +39,5 @@ production-bundle: clean-modules node_modules lint build
 test: node_modules lint build
 	# TODO: Remove once real tests are in place
 	npm start | tail -1 | grep -w -e '^Hello World!$$' && \
-		echo $(GREEN)*********************************** PASSED ************************************$(NC) || \
-		echo $(RED)*********************************** FAILED ************************************$(NC)
+		(echo $(GREEN)*********************************** PASSED ************************************$(NC); exit 0) || \
+		(echo $(RED)*********************************** FAILED ************************************$(NC); exit 1)
