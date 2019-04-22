@@ -44,6 +44,7 @@ sure to change those as well.
   - Multi-Stage Build
   - Development Volume - Source Code Watcher (TODO: Implement)
   - docker-compose ready (TODO: Implement)
+* Web Interface (Express.js)
 * CI (Using TravisCI)
 * Test harness  (TODO: Implement)
 * Validation    (TODO: Implement)
