@@ -46,6 +46,9 @@ sure to change those as well.
   - docker-compose ready (TODO: Implement)
 * Web Interface (Express.js)
 * CI (Using TravisCI)
+* Test automation
+  - Unit tests (mocha, chai, sinon)
+  - Coverage (nyc)
 * Test harness  (TODO: Implement)
 * Validation    (TODO: Implement)
 ```

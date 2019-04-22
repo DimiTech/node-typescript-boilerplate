@@ -16,25 +16,25 @@ describe('UserController', () => {
       {
         id: 1,
         email: 'lorem@ipsum.com',
-        name: 'Lorem'
+        name: 'Lorem',
       },
       {
         id: 2,
         email: 'doloe@sit.com',
-        name: 'Dolor'
-      }
+        name: 'Dolor',
+      },
     ])
   })
 
   it('Returns the right user', () => {
     expect(controller.getUser({
       params: {
-        id: 1
-      }
+        id: 1,
+      },
     } as Request)).to.deep.equal({
       id: 1,
       email: 'lorem@ipsum.com',
-      name: 'Lorem'
+      name: 'Lorem',
     })
   })
 
@@ -45,13 +45,13 @@ describe('UserController', () => {
         body: {
           id: 3,
           email: 'test@test.com',
-          name: 'test'
-        }
-      } as Request)
+          name: 'test',
+        },
+      } as Request),
     ).to.deep.equal({
       id: 3,
       email: 'test@test.com',
-      name: 'test'
+      name: 'test',
     })
     expect(controller.getUsers()).to.have.length(3)
   })
@@ -62,16 +62,16 @@ describe('UserController', () => {
         body: {
           id: 3,
           email: 'changed@changed.com',
-          name: 'Changed'
+          name: 'Changed',
         },
         params: {
-          id: 3
-        }
-      } as Request)
+          id: 3,
+        },
+      } as Request),
     ).to.deep.equal({
       id: 3,
       email: 'changed@changed.com',
-      name: 'Changed'
+      name: 'Changed',
     })
   })
 
@@ -80,9 +80,9 @@ describe('UserController', () => {
     expect(
       controller.deleteUser({
         params: {
-          id: 3
-        }
-      } as Request)
+          id: 3,
+        },
+      } as Request),
     ).to.deep.equal({ id: 3 })
     expect(controller.getUsers()).to.have.length(2)
   })

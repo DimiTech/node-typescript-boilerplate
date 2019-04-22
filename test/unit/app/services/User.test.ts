@@ -14,13 +14,13 @@ describe('UserService', () => {
       {
         id: 1,
         email: 'lorem@ipsum.com',
-        name: 'Lorem'
+        name: 'Lorem',
       },
       {
         id: 2,
         email: 'doloe@sit.com',
-        name: 'Dolor'
-      }
+        name: 'Dolor',
+      },
     ])
   })
 
@@ -28,7 +28,7 @@ describe('UserService', () => {
     expect(service.getUser(1)).to.deep.equal({
       id: 1,
       email: 'lorem@ipsum.com',
-      name: 'Lorem'
+      name: 'Lorem',
     })
   })
 
@@ -37,11 +37,11 @@ describe('UserService', () => {
     expect(service.newUser({
       id: 3,
       email: 'test@test.com',
-      name: 'test'
+      name: 'test',
     })).to.deep.equal({
       id: 3,
       email: 'test@test.com',
-      name: 'test'
+      name: 'test',
     })
     expect(service.getUsers()).to.have.length(3)
   })
@@ -50,11 +50,11 @@ describe('UserService', () => {
     expect(service.updateUser(3, {
       id: 3,
       email: 'changed@changed.com',
-      name: 'changed'
+      name: 'changed',
     })).to.deep.equal({
       id: 3,
       email: 'changed@changed.com',
-      name: 'changed'
+      name: 'changed',
     })
   })
 

@@ -22,7 +22,7 @@ export default class Server implements IServer {
     this.server.setConfig((app) => {
       app.use([
         bodyParser.urlencoded({ extended: true }),
-        bodyParser.json()
+        bodyParser.json(),
       ])
     })
   }

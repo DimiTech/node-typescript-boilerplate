@@ -12,12 +12,12 @@ export class UserService {
     {
       id: 1,
       email: 'lorem@ipsum.com',
-      name: 'Lorem'
+      name: 'Lorem',
     },
     {
       id: 2,
       email: 'doloe@sit.com',
-      name: 'Dolor'
+      name: 'Dolor',
     },
   ]
 

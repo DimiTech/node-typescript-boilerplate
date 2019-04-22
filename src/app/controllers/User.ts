@@ -5,7 +5,7 @@ import {
   httpGet,
   httpPost,
   httpPut,
-  httpDelete
+  httpDelete,
 } from 'inversify-express-utils'
 
 import { TYPES } from '@infrastructure/inversify.config'
@@ -22,7 +22,7 @@ export class UserController {
 
   @httpGet('/:id')
   public getUser(request: Request): (IUser | undefined) {
-    const id = parseInt(request.params.id)
+    const id = parseInt(request.params.id, 10)
     return this.userService.getUser(id)
   }
 
@@ -34,14 +34,14 @@ export class UserController {
 
   @httpPut('/:id')
   public updateUser(request: Request): IUser {
-    const { body: user } : { body: IUser } = request
-    const id = parseInt(request.params.id)
+    const { body: user }: { body: IUser } = request
+    const id = parseInt(request.params.id, 10)
     return this.userService.updateUser(id, user)
   }
 
   @httpDelete('/:id')
   public deleteUser(request: Request): { id: number } {
-    const id = parseInt(request.params.id)
+    const id = parseInt(request.params.id, 10)
     this.userService.deleteUser(id)
     return { id }
   }
