@@ -1,9 +1,7 @@
 import { expect } from 'chai'
 import * as sinon from 'sinon'
 
-import App from '@app/App'
-// import IServer from '@app/server/IServer'
-// import { IAppConfig } from '@app/app.config'
+import App from '@web/App'
 
 describe('App', () => {
   const mockServer = {

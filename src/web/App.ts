@@ -1,8 +1,8 @@
 import { injectable, inject } from 'inversify'
 import { TYPES } from '@infrastructure/inversify.config'
 
-import IServer from '@app/server/IServer'
-import { AppConfig } from '@app/app.config'
+import IServer from '@web/server/IServer'
+import { WebConfig } from '@web/web.config'
 
 @injectable()
 export default class App {
@@ -10,6 +10,6 @@ export default class App {
 
   public run(): void {
     this.server.configure()
-    this.server.start(AppConfig)
+    this.server.start(WebConfig)
   }
 }

@@ -1,7 +1,7 @@
 import { expect } from 'chai'
 import { Request } from 'express'
 
-import { UserController } from '@app/controllers/User'
+import { UserController } from '@web/controllers/User'
 import { UserService } from '@app/services/User'
 
 describe('UserController', () => {

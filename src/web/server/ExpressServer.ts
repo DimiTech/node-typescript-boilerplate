@@ -4,11 +4,11 @@ import * as bodyParser from 'body-parser'
 
 import { container } from '@infrastructure/inversify.config'
 
-import IServer from '@app/server/IServer'
-import { IAppConfig } from '@app/app.config'
+import IServer from '@web/server/IServer'
+import { IWebConfig } from '@web/web.config'
 
-import '@app/controllers/Home'
-import '@app/controllers/User'
+import '@web/controllers/Home'
+import '@web/controllers/User'
 
 @injectable()
 export default class Server implements IServer {
@@ -27,7 +27,7 @@ export default class Server implements IServer {
     })
   }
 
-  public start(config: IAppConfig) {
+  public start(config: IWebConfig) {
     const serverInstance = this.server.build()
     serverInstance.listen(config.port, () => {
       process.stdout.write(`Listening at: http://127.0.0.1:${config.port}\n`)

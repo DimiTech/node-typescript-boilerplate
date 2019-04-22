@@ -7,9 +7,9 @@ export const TYPES = {
   UserService : Symbol.for('UserService'),
 }
 
-import App from '@app/App'
-import IServer from '@app/server/IServer'
-import ExpressServer from '@app/server/ExpressServer'
+import App from '@web/App'
+import IServer from '@web/server/IServer'
+import ExpressServer from '@web/server/ExpressServer'
 import { UserService } from '@app/services/User'
 import IGreeter from '@domain/IGreeter'
 import Greeter from '@domain/Greeter'

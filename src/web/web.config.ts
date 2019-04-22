@@ -1,7 +1,7 @@
-export interface IAppConfig {
+export interface IWebConfig {
   port: number
 }
 
-export const AppConfig: IAppConfig = {
+export const WebConfig: IWebConfig = {
   port: parseInt(process.env.PORT || '3000', 10),
 }
