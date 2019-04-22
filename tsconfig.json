@@ -16,8 +16,9 @@
       "reflect-metadata"
     ],
     "paths": {
-      "@app/*": [ "./app/*" ],
-      "@infrastructure/*": [ "./infrastructure/*" ]
+      "@app/*"            : [ "./app/*" ],
+      "@domain/*"         : [ "./domain/*" ],
+      "@infrastructure/*" : [ "./infrastructure/*" ]
     }
   }
 }
