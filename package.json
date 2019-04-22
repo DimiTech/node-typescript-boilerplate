@@ -17,13 +17,19 @@
     "lint": "tslint ./src/**/*.ts",
     "build": "webpack",
     "start": "node -r source-map-support/register ./build/app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "nyc -- mocha"
   },
   "devDependencies": {
     "@types/body-parser": "^1.17.0",
+    "@types/chai": "^4.1.7",
     "@types/express": "^4.16.1",
+    "@types/mocha": "^5.2.6",
     "@types/node": "^11.13.4",
+    "chai": "^4.2.0",
+    "mocha": "^6.1.4",
+    "nyc": "^14.0.0",
     "ts-loader": "^5.3.3",
+    "ts-node": "^8.1.0",
     "tslint": "^5.16.0",
     "typescript": "^3.4.3",
     "webpack": "^4.30.0",
@@ -37,5 +43,37 @@
     "inversify-express-utils": "^6.3.2",
     "reflect-metadata": "^0.1.13",
     "source-map-support": "^0.5.12"
+  },
+  "nyc": {
+    "all": true,
+    "clean": true,
+    "check-coverage": true,
+    "per-file": false,
+    "lines": 5,
+    "statements": 5,
+    "functions": 5,
+    "branches": 0,
+    "include": [
+      "src/**/*"
+    ],
+    "extension": [
+      ".ts"
+    ],
+    "require": [
+      "ts-node/register",
+      "reflect-metadata/Reflect"
+    ]
+  },
+  "mocha": {
+    "spec": "./test/**/*.test.ts",
+    "exit": true,
+    "diff": true,
+    "extension": [
+      "ts"
+    ],
+    "package": "./package.json",
+    "timeout": 5000,
+    "reporter": "spec",
+    "ui": "bdd"
   }
 }

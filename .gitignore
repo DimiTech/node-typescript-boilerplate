@@ -8,6 +8,9 @@ node_modules/
 *.swp
 .vscode/
 
+# Tests
+.nyc_output/
+
 # Logs
 *.log
 npm-debug.log*
