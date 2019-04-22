@@ -17,7 +17,8 @@
     "lint": "tslint ./src/**/*.ts",
     "build": "webpack",
     "start": "node -r source-map-support/register ./build/app.js",
-    "test": "nyc -- mocha"
+    "test": "nyc -- mocha",
+    "test:coverage": "npm test && nyc report --reporter=html && open ./coverage/index.html"
   },
   "devDependencies": {
     "@types/body-parser": "^1.17.0",

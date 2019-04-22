@@ -10,6 +10,7 @@ node_modules/
 
 # Tests
 .nyc_output/
+coverage/
 
 # Logs
 *.log
