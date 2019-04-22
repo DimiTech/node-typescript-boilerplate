@@ -1,4 +1,5 @@
 import { expect } from 'chai'
+
 import { UserService } from '@app/services/User'
 
 describe('UserService', () => {
