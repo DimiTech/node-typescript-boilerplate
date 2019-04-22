@@ -9,7 +9,6 @@ export default class App {
   constructor(@inject(TYPES.IServer) private server: IServer) {}
 
   public run(): void {
-    this.server.configure()
     this.server.start(WebConfig)
   }
 }

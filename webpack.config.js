@@ -18,6 +18,7 @@ module.exports = {
   resolve: {
     extensions: [ '.ts', '.js' ],
     alias: {
+      '@test'           : path.resolve(__dirname, 'test'),
       '@web'            : path.resolve(__dirname, 'src', 'web'),
       '@app'            : path.resolve(__dirname, 'src', 'app'),
       '@domain'         : path.resolve(__dirname, 'src', 'domain'),

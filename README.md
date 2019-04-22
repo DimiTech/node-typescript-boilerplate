@@ -43,13 +43,13 @@ sure to change those as well.
 * Dockerization
   - Multi-Stage Build
   - Development Volume - Source Code Watcher (TODO: Implement)
-  - docker-compose ready (TODO: Implement)
+  - docker-compose (TODO: Implement)
 * Web Interface (Express.js)
 * CI (Using TravisCI)
 * Test automation
   - Unit tests (mocha, chai, sinon)
+  - Integration Testing Harness (supertest)
   - Coverage (nyc)
 * Config stored in ENV variables (dotenv)
-* Test harness  (TODO: Implement)
 * Validation    (TODO: Implement)
 ```

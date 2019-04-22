@@ -5,14 +5,13 @@ import App from '@web/App'
 
 describe('App', () => {
   const mockServer = {
-    configure : sinon.spy(),
-    start     : sinon.spy(),
+    start           : sinon.spy(),
+    getServerObject : sinon.stub(),
   }
   const app: App = new App(mockServer)
 
   it('Initializes and starts the given server', () => {
     app.run()
-    expect(mockServer.configure.calledOnce).to.be.true
-    expect(mockServer.start.calledOnce    ).to.be.true
+    expect(mockServer.start.calledOnce).to.be.true
   })
 })

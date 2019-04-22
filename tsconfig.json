@@ -19,6 +19,7 @@
       "mocha"
     ],
     "paths": {
+      "@test/*"           : [ "../test/*" ],
       "@web/*"            : [ "./web/*" ],
       "@app/*"            : [ "./app/*" ],
       "@domain/*"         : [ "./domain/*" ],
