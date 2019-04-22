@@ -34,11 +34,11 @@ describe('UserService', () => {
   it('Adds a new user', () => {
     expect(service.getUsers()).to.have.length(2)
     expect(service.newUser({
-      id: 1,
+      id: 3,
       email: 'test@test.com',
       name: 'test'
     })).to.deep.equal({
-      id: 1,
+      id: 3,
       email: 'test@test.com',
       name: 'test'
     })
@@ -46,20 +46,20 @@ describe('UserService', () => {
   })
 
   it('Updates an existing user', () => {
-    expect(service.updateUser(1, {
-      id: 1,
+    expect(service.updateUser(3, {
+      id: 3,
       email: 'changed@changed.com',
-      name: 'Lorem'
+      name: 'changed'
     })).to.deep.equal({
-      id: 1,
+      id: 3,
       email: 'changed@changed.com',
-      name: 'Lorem'
+      name: 'changed'
     })
   })
 
   it('Deletes a user', () => {
-    // expect(service.getUsers()).to.have.length(2)
-    expect(service.deleteUser(1)).to.equal(1)
-    expect(service.getUsers()).to.have.length(1)
+    expect(service.getUsers()).to.have.length(3)
+    expect(service.deleteUser(3)).to.equal(3)
+    expect(service.getUsers()).to.have.length(2)
   })
 })
