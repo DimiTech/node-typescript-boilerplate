@@ -1,6 +1,9 @@
 # Build artifacts
 build/
 
+# Secrets
+.env
+
 # Dependency directory
 node_modules/
 

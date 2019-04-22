@@ -49,6 +49,7 @@ sure to change those as well.
 * Test automation
   - Unit tests (mocha, chai, sinon)
   - Coverage (nyc)
+* Config stored in ENV variables (dotenv)
 * Test harness  (TODO: Implement)
 * Validation    (TODO: Implement)
 ```
