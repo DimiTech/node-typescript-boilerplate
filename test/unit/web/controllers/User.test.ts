@@ -2,7 +2,7 @@ import { expect } from 'chai'
 import { Request } from 'express'
 
 import { UserController } from '@web/controllers/User'
-import { UserService } from '@app/services/User'
+import UserService from '@app/services/User'
 
 describe('UserController', () => {
   let controller: UserController

@@ -1,6 +1,6 @@
 import { expect } from 'chai'
 
-import { UserService } from '@app/services/User'
+import UserService from '@app/services/User'
 
 describe('UserService', () => {
   let service: UserService

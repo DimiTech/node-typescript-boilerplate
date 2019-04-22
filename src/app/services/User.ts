@@ -1,13 +1,9 @@
 import { injectable } from 'inversify'
 
-export interface IUser {
-  id: number,
-  email: string
-  name: string
-}
+import IUser from '@domain/IUser'
 
 @injectable()
-export class UserService {
+export default class UserService {
   private static userStorage: IUser[] = [
     {
       id: 1,
