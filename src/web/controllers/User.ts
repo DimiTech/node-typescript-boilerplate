@@ -10,7 +10,7 @@ import {
 
 import { TYPES } from '@infrastructure/inversify.config'
 import UserService from '@app/services/User'
-import IUser from '@domain/IUser'
+import IUser from '@domain/entities/IUser'
 
 @controller('/users')
 export class UserController {

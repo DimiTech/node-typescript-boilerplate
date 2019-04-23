@@ -1,7 +1,7 @@
 import { expect } from 'chai'
 
 import { HomeController } from '@web/controllers/Home'
-import Greeter from '@domain/Greeter'
+import Greeter from '@domain/services/Greeter'
 
 describe('HomeController', () => {
   it('Returns a greeting', () => {

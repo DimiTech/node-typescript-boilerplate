@@ -1,6 +1,6 @@
 import { injectable } from 'inversify'
 
-import IGreeter from '@domain/IGreeter'
+import IGreeter from '@domain/services/IGreeter'
 
 @injectable()
 export default class Greeter implements IGreeter {

@@ -11,8 +11,8 @@ import App from '@web/App'
 import IServer from '@web/server/IServer'
 import ExpressServer from '@web/server/ExpressServer'
 import UserService from '@app/services/User'
-import IGreeter from '@domain/IGreeter'
-import Greeter from '@domain/Greeter'
+import IGreeter from '@domain/services/IGreeter'
+import Greeter from '@domain/services/Greeter'
 
 export const container = new Container()
 container.bind<IGreeter>(TYPES.IGreeter).to(Greeter)

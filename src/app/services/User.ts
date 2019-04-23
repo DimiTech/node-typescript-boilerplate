@@ -1,6 +1,6 @@
 import { injectable } from 'inversify'
 
-import IUser from '@domain/IUser'
+import IUser from '@domain/entities/IUser'
 
 @injectable()
 export default class UserService {
