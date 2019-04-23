@@ -1,0 +1,19 @@
+version: '3.7'
+
+services:
+  app:
+    build:
+      context: ./
+      dockerfile: Dockerfile.${ENVIRONMENT}
+      args:
+        NODE_VERSION: ${NODE_VERSION}
+        PORT: ${PORT}
+        APP_NAME: ${APP_NAME}
+        COMPANY_NAME: ${COMPANY_NAME}
+        ENVIRONMENT: ${ENVIRONMENT}
+    environment:
+      - PORT=${PORT}
+    ports:
+      - 80:${PORT}
+    volumes:
+      - './src:/opt/${COMPANY_NAME}/${APP_NAME}/src'

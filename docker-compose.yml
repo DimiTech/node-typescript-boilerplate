@@ -1,0 +1,17 @@
+version: '3.7'
+
+services:
+  app:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+      args:
+        NODE_VERSION: ${NODE_VERSION}
+        PORT: ${PORT}
+        APP_NAME: ${APP_NAME}
+        COMPANY_NAME: ${COMPANY_NAME}
+        ENVIRONMENT: ${ENVIRONMENT}
+    environment:
+      - PORT=${PORT}
+    ports:
+      - 80:${PORT}

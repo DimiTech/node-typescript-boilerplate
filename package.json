@@ -1,16 +1,12 @@
 {
   "version": "0.1.0",
   "name": "node-typescript-boilerplate",
-  "company": "example-llc",
   "description": "Node.js/TypeScript Boilerplate",
   "author": "Dušan Dimitrić <dusan_dimitric@yahoo.com",
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git@github.com:DusanDimitric/node-typescript-boilerplate.git"
-  },
-  "engines": {
-    "node": "11.14.0"
   },
   "main": "./src/main.js",
   "scripts": {

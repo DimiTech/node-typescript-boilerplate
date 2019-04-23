@@ -12,6 +12,7 @@ RUN apk add --no-cache make
 COPY package*.json     \
      tsconfig.json     \
      tslint.json       \
+     nodemon.json      \
      webpack.config.js \
      Makefile          \
      .env              \
@@ -38,14 +39,18 @@ ARG DEPLOYMENT_DIR=/opt/$COMPANY_NAME/$APP_NAME
 RUN mkdir -p $DEPLOYMENT_DIR
 
 # Copy only the necessary files from the build stage
-COPY --from=builder /app/package*.json $DEPLOYMENT_DIR/
+COPY --from=builder /app/package*.json     \
+                    /app/nodemon.json      \
+                    /app/tsconfig.json     \
+                    /app/webpack.config.js \
+                    $DEPLOYMENT_DIR/
 COPY --from=builder /app/build $DEPLOYMENT_DIR/build
+COPY --from=builder /app/src/ $DEPLOYMENT_DIR/src
 
 RUN chown -R node:node $DEPLOYMENT_DIR
 USER node
 WORKDIR $DEPLOYMENT_DIR
 
- # Install only production dependencies
-RUN npm ci --production
+RUN npm i
 
-CMD ["npm", "start"]
+CMD ["npm", "run", "watch"]
