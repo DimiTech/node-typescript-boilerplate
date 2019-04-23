@@ -37,7 +37,7 @@ ARG DEPLOYMENT_DIR=/opt/$COMPANY_NAME/$APP_NAME
 RUN mkdir -p $DEPLOYMENT_DIR
 
 # Copy only the necessary files from the build stage
-COPY --from=builder /app/package.json $DEPLOYMENT_DIR/
+COPY --from=builder /app/package*.json $DEPLOYMENT_DIR/
 COPY --from=builder /app/build $DEPLOYMENT_DIR/build
 
 RUN chown -R node:node $DEPLOYMENT_DIR
@@ -45,7 +45,6 @@ USER node
 WORKDIR $DEPLOYMENT_DIR
 
  # Install only production dependencies and don't create package-lock.json
-RUN npm config set package-lock false && \
-    npm i --production
+RUN npm ci --production
 
 CMD ["npm", "start"]

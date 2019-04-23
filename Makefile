@@ -7,7 +7,7 @@ lint:
 	npm run lint
 
 watch: clean node_modules lint watch
-	npm run build -- -w --mode development
+	npm run watch
 
 start: node_modules build
 	npm start
@@ -43,6 +43,9 @@ APP_VERSION =$(shell grep '"version": '       package.json | head -1 | cut -d '"
 APP_NAME    =$(shell grep '"name": '          package.json | head -1 | cut -d '"' -f 4)
 COMPANY_NAME=$(shell grep '"company": '       package.json | head -1 | cut -d '"' -f 4)
 
+# These variables come from .env
+PORT=$(shell grep '^PORT=' .env | awk -F"=" '{print $$2}')
+
 show-variables:
 	@echo NODE_VERSION = $(NODE_VERSION)
 	@echo APP_VERSION  = $(APP_VERSION)
@@ -66,4 +69,7 @@ docker-image-load:
 	docker load -i $(APP_NAME):$(APP_VERSION).tar
 
 docker-run:
-	docker run $(COMPANY_NAME)/$(APP_NAME):latest
+	docker run      \
+	-e PORT=$(PORT) \
+	-p 80:$(PORT)   \
+	$(COMPANY_NAME)/$(APP_NAME):latest

@@ -17,6 +17,7 @@
     "lint": "tslint --project ./",
     "build": "webpack",
     "start": "node -r source-map-support/register ./build/app.js",
+    "watch": "nodemon -r source-map-support/register ./build/app.js",
     "test": "nyc -- mocha",
     "test:coverage": "npm test && nyc report --reporter=html && open ./coverage/index.html"
   },
@@ -31,6 +32,7 @@
     "@types/supertest": "^2.0.7",
     "chai": "^4.2.0",
     "mocha": "^6.1.4",
+    "nodemon": "^1.18.11",
     "nyc": "^14.0.0",
     "sinon": "^7.3.2",
     "supertest": "^4.0.2",
