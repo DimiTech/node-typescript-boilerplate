@@ -30,7 +30,7 @@ clean:
 
 production-bundle: clean-modules node_modules lint build
 
-test: node_modules lint build
+test: node_modules lint
 	npm test
 
 ###############################################################################

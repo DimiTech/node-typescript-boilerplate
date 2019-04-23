@@ -56,9 +56,9 @@
     "clean": true,
     "check-coverage": true,
     "per-file": false,
-    "lines": 5,
-    "statements": 5,
-    "functions": 5,
+    "lines": 80,
+    "statements": 80,
+    "functions": 80,
     "branches": 0,
     "include": [
       "src/**/*"
