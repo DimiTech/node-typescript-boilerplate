@@ -25,6 +25,22 @@ describe(BASE_PATH, () => {
           done()
         })
     })
+
+    it('Does not create a new user if there are validation errors', done => {
+      request(server)
+        .post(BASE_PATH)
+        .send({
+          id: 3,
+          email: 'test@test.com',
+          // "name" propertymissing
+        })
+        .then(res => {
+          expect(res.status).to.equal(422)
+          expect(res.body.errors.length).to.equal(1)
+          expect(res.body.errors[0].property).to.equal('name')
+          done()
+        })
+    })
   })
 
   describe(`GET ${BASE_PATH}`, () => {

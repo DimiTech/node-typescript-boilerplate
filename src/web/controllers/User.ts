@@ -2,6 +2,7 @@ import { inject } from 'inversify'
 import { Request } from 'express'
 import {
   controller,
+  BaseHttpController,
   httpGet,
   httpPost,
   httpPut,
@@ -11,10 +12,14 @@ import {
 import { TYPES } from '@infrastructure/inversify.config'
 import UserService from '@app/services/User'
 import IUser from '@domain/entities/IUser'
+import User from '@domain/entities/User'
+import Validator from '@web/middleware/Validator'
 
 @controller('/users')
-export class UserController {
-  constructor(@inject(TYPES.UserService) private userService: UserService) {}
+export class UserController extends BaseHttpController {
+  constructor(@inject(TYPES.UserService) private userService: UserService) {
+    super()
+  }
 
   @httpGet('/')
   public getUsers(): IUser[] {
@@ -27,8 +32,8 @@ export class UserController {
     return this.userService.getUser(id)
   }
 
-  @httpPost('/')
-  public newUser(request: Request): IUser {
+  @httpPost('/', Validator(User))
+  public async newUser(request: Request) {
     const { body: user } = request
     return this.userService.newUser(user)
   }
