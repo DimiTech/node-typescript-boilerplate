@@ -1,20 +1,13 @@
 import { injectable } from 'inversify'
 
 import IUser from '@domain/entities/IUser'
+import User from '@domain/entities/User'
 
 @injectable()
 export default class UserService {
   private static userStorage: IUser[] = [
-    {
-      id: 1,
-      email: 'lorem@ipsum.com',
-      name: 'Lorem',
-    },
-    {
-      id: 2,
-      email: 'doloe@sit.com',
-      name: 'Dolor',
-    },
+    new User(1, 'lorem@ipsum.com', 'Lorem'),
+    new User(2, 'doloe@sit.com', 'Dolor'),
   ]
 
   public getUsers(): IUser[] {

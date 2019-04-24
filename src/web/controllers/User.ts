@@ -34,7 +34,7 @@ export class UserController extends BaseHttpController {
 
   @httpPost('/', Validator(User))
   public async newUser(request: Request) {
-    const { body: user } = request
+    const user: User = request.body
     return this.userService.newUser(user)
   }
 

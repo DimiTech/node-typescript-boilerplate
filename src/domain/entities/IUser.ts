@@ -1,5 +1,6 @@
 export default interface IUser {
-  id: number,
+  id: number
   email: string
   name: string
+  getName(): string
 }

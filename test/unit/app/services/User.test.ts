@@ -1,6 +1,8 @@
 import { expect } from 'chai'
 
 import UserService from '@app/services/User'
+import IUser from '@domain/entities/IUser'
+import User from '@domain/entities/User'
 
 describe('UserService', () => {
   let service: UserService
@@ -34,24 +36,18 @@ describe('UserService', () => {
 
   it('Adds a new user', () => {
     expect(service.getUsers()).to.have.length(2)
-    expect(service.newUser({
-      id: 3,
-      email: 'test@test.com',
-      name: 'test',
-    })).to.deep.equal({
+    const newUser: IUser = service.newUser(new User(3, 'test@test.com', 'test'))
+    expect(newUser).to.deep.equal({
       id: 3,
       email: 'test@test.com',
       name: 'test',
     })
+    expect(newUser.getName()).to.equal('test')
     expect(service.getUsers()).to.have.length(3)
   })
 
   it('Updates an existing user', () => {
-    expect(service.updateUser(3, {
-      id: 3,
-      email: 'changed@changed.com',
-      name: 'changed',
-    })).to.deep.equal({
+    expect(service.updateUser(3, new User(3, 'changed@changed.com', 'changed'))).to.deep.equal({
       id: 3,
       email: 'changed@changed.com',
       name: 'changed',

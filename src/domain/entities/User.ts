@@ -1,4 +1,4 @@
-import { IsDefined, IsInt, Length, IsEmail, Min, Max } from 'class-validator'
+import { IsDefined, IsInt, Length, IsEmail, Min, Max, Allow } from 'class-validator'
 
 import IUser from '@domain/entities/IUser'
 
@@ -20,5 +20,10 @@ export default class User implements IUser {
     this.id = id
     this.email = email
     this.name = name
+  }
+
+  @Allow()
+  public getName() {
+    return this.name
   }
 }
