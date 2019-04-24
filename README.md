@@ -7,27 +7,26 @@ A starting point for Node.js projects written in TypeScript.
 
 ## What this boilerplate includes?
 
-```
 * TypeScript Node.js environment
   - ES6 Modules
   - Source Map Support
   - Absolute path imports
   - Watcher
-* Linting
+  - Linting
 * Dependency Injection (InversifyJS)
 * Dockerization
   - Multi-Stage Build
   - docker-compose (production, development)
-* Web Interface (Express.js)
-* CI (Using TravisCI)
+* Elegant Web Interface
+  - inversify-express-utils
+  - Logging
+  - Validation & input type checking
 * Test automation
   - Unit tests (mocha, chai, sinon)
   - Integration Testing Harness (supertest)
   - Coverage (nyc)
+* CI (Using TravisCI)
 * Config stored in ENV variables (dotenv)
-* Validation & input type checking
-* Logging
-```
 
 ## Configure
 
