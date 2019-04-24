@@ -2,7 +2,7 @@ import { IsDefined, IsInt, Length, IsEmail, Min, Max, Allow } from 'class-valida
 
 import IUser from '@domain/entities/IUser'
 
-// TODO: Should this validation be in the domain?!
+// TODO: Should validation be in the domain?!
 export default class User implements IUser {
   @IsInt()
   @Min(0)

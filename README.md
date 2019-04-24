@@ -25,7 +25,8 @@ A starting point for Node.js projects written in TypeScript.
   - Integration Testing Harness (supertest)
   - Coverage (nyc)
 * Config stored in ENV variables (dotenv)
-* Validation
+* Validation & input type checking
+* Logging
 ```
 
 ## Configure

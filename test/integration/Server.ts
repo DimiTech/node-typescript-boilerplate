@@ -1,3 +1,5 @@
+process.env.ENVIRONMENT = 'testing'
+
 import * as Express from 'express'
 
 import App from '@web/App'
