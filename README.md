@@ -58,11 +58,16 @@ Copy `.env.example` to `.env` and insert your own values:
 ```
 $ cp .env.example .env
 $ vim .env
-NODE_VERSION=11.14.0     # Version of the Node.js engine - used in Dockerfiles
+NODE_VERSION=12.0.0      # Version of the Node.js engine - used in Dockerfiles
 COMPANY_NAME=company     # Used for Docker image tagging and deployment directory creation
 APP_NAME=nodejs-app      # Used for Docker image tagging and deployment directory creation
 ENVIRONMENT=development  # Used to determine which Docker image to use
 PORT=1338                # Port that the app will be exposed on
+DB_USER=root             # Database username
+DB_PASS=example          # Database password
+DB_HOST=mongo            # Database hostname
+DB_PORT=27017            # Database port
+DB_NAME=nodejs-app       # Database name
 ```
 
 ### Configure Node.js version
@@ -88,7 +93,7 @@ make compose-up
 
 Change the `ENVIRONMENT` value in `.env`.
 
-Accepted values are `[production|development|...]`
+Accepted values are `[production|development|testing|...]`
 
 ### Change Version of the App
 
@@ -101,8 +106,9 @@ Change the `NODE_ENGINE` value in `.env`.
 ### Add an ENV variable
 
 1. Add the ENV variable in `.env` -> `EXAMPLE=example`
-2. (optional) Add that ENV variable to `Makefile` ENV variables -> `EXAMPLE=$(shell grep '^EXAMPLE=' .env | awk -F"=" '{print $$2}')`
-3. (optional) Add that ENV variable to `Makefile` `show-variables` target ->`@echo EXAMPLE = $(EXAMPLE)`
-4. (optional) Add that ENV variable to `web.config.ts` -> `process.env.EXAMPLE`
-5. (optional) Add that ENV variable to `docker-compose.yml` and `Dockerfile`
-6. (optional) Add that ENV variable to `docker-compose.development.yml` and `Dockerfile.development`
+2. (if required) Add that ENV variable to `Makefile` ENV variables -> `EXAMPLE=$(shell grep '^EXAMPLE=' .env | awk -F"=" '{print $$2}')`
+3. (if required) Add that ENV variable to `Makefile` `show-variables` target ->`@echo EXAMPLE = $(EXAMPLE)`
+4. (if required) Add that ENV variable to `[web|db].config.ts` -> `process.env.EXAMPLE`
+5. (if required) Add that ENV variable to `docker-compose.yml` and (if required) to `Dockerfile`
+6. (if required) Add that ENV variable to `docker-compose.development.yml` and (if required) to `Dockerfile.development`
+7. Document that ENV variable in this README file
