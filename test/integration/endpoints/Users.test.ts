@@ -1,7 +1,7 @@
 import { expect } from 'chai'
 import * as request from 'supertest'
 
-import { server } from '@test/integration/Server'
+import { server } from '@test/integration/Server.test'
 
 const BASE_PATH = '/users'
 

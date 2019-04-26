@@ -13,7 +13,21 @@ services:
         ENVIRONMENT: ${ENVIRONMENT}
     environment:
       - PORT=${PORT}
+      - DB_USER=${DB_USER}
+      - DB_PASS=${DB_PASS}
+      - DB_HOST=${DB_HOST}
+      - DB_PORT=${DB_PORT}
+      - DB_NAME=${DB_NAME}
     ports:
       - 80:${PORT}
     volumes:
       - './src:/opt/${COMPANY_NAME}/${APP_NAME}/src'
+
+  mongo:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+    ports:
+      - 27017:27017

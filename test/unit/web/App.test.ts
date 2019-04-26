@@ -8,10 +8,15 @@ describe('App', () => {
     start           : sinon.spy(),
     getServerObject : sinon.stub(),
   }
-  const app: App = new App(mockServer)
+  const mockDatabase = {
+    getConnection : sinon.stub(),
+    connect       : sinon.spy(),
+  }
+  const app: App = new App(mockServer, mockDatabase)
 
-  it('Initializes and starts the given server', () => {
-    app.run()
+  it('Initializes and starts the given server', async () => {
+    await app.run()
+    expect(mockDatabase.connect.calledOnce).to.be.true
     expect(mockServer.start.calledOnce).to.be.true
   })
 })
