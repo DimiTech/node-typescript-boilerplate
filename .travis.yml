@@ -1,5 +1,10 @@
 language: node_js
 node_js:
-  - "12.0.0
+  - "12.0.0"
+services:
+  - mongodb
+before_script:
+  - sleep 15
+  - mongo test_db --eval 'db.createUser({user:"test",pwd:"test",roles:["readWrite"]});'
 script:
   make test
