@@ -63,17 +63,12 @@ COMPANY_NAME=company     # Used for Docker image tagging and deployment director
 APP_NAME=nodejs-app      # Used for Docker image tagging and deployment directory creation
 ENVIRONMENT=development  # Used to determine which Docker image to use
 PORT=1338                # Port that the app will be exposed on
-DB_USER=root             # Database username
-DB_PASS=example          # Database password
+DB_USER=test             # Database username
+DB_PASS=test             # Database password
 DB_HOST=mongo            # Database hostname
 DB_PORT=27017            # Database port
 DB_NAME=nodejs-app       # Database name
 ```
-
-### Configure Node.js version
-
-Inside `Dockerfile` edit the `ARG NODE_VERSION` if you want to use a different
-Node.js version. Make sure to check DockerHub for corresponding Docker Images.
 
 ## Run it:
 
@@ -91,7 +86,7 @@ make compose-up
 
 ### Change App Environment
 
-Change the `ENVIRONMENT` value in `.env`.
+Change the `ENVIRONMENT` value in `.env` and `.travis.yml`.
 
 Accepted values are `[production|development|testing|...]`
 
@@ -101,7 +96,12 @@ Change the `.version` field in `package.json`.
 
 ### Change Version of the Node.js engine
 
-Change the `NODE_ENGINE` value in `.env`.
+1. Change the `NODE_ENGINE` value in `.env`.
+2. Change the `NODE_ENGINE` value in `.env.example`.
+3. Change the `NODE_ENGINE` value in `.env.example` output in the README.md file.
+4. Change the Node.js version in `.travis.yml`.
+
+Make sure to check DockerHub for corresponding Docker Images.
 
 ### Add an ENV variable
 

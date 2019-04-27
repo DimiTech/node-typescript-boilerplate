@@ -7,11 +7,12 @@ import * as expressWinston from 'express-winston'
 
 import { container } from '@infrastructure/inversify.config'
 
+import Logger from '@infrastructure/logging/Logger'
 import IServer from '@web/server/IServer'
 import { WebConfig } from '@web/web.config'
 
-import '@web/controllers/Home'
-import '@web/controllers/User'
+import '@web/controllers/HomeController'
+import '@web/controllers/UserController'
 
 @injectable()
 export default class ExpressServer implements IServer {
@@ -42,6 +43,7 @@ export default class ExpressServer implements IServer {
       ])
     })
     this.serverInstance = this.server.build()
+    this.serverInstance.use(this.errorHandler)
   }
 
   public start() {
@@ -52,5 +54,10 @@ export default class ExpressServer implements IServer {
 
   public getServerObject(): Express.Application {
     return this.serverInstance
+  }
+
+  private errorHandler(err: any, _req: Express.Request, res: Express.Response, _next: Express.NextFunction) {
+    Logger.error(err)
+    res.status(500).end()
   }
 }

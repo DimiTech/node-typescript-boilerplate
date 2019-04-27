@@ -15,7 +15,12 @@ const validatorConfig = {
 
 export default function ValidationMiddleware<T>(Type: new (...args: any[]) => T) {
   return async (req: Request, res: Response, next: NextFunction) => {
+    // TODO: Use ObjectUtils.plainToInstance()
     const object: T = plainToClass(Type, req.body as T)
+    //   { // TODO: class-transform needs to be updated to enable this
+    //     excludeExtraneousValues: true,
+    //   },
+    // )
 
     /*
      * `.validate()` also strips additional properties from the `object` because

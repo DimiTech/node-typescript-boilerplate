@@ -1,10 +1,16 @@
 language: node_js
 node_js:
-  - "12.0.0"
+  - '12.0.0'
+env:
+  DB_USER=travis_mongo_user
+  DB_PASS=travis_mongo_pass
+  DB_HOST=127.0.0.1
+  DB_PORT=27017
+  DB_NAME=test_database
 services:
   - mongodb
 before_script:
   - sleep 15
-  - mongo test_db --eval 'db.createUser({user:"test",pwd:"test",roles:["readWrite"]});'
+  - mongo test_database --eval 'db.createUser({user:"travis_mongo_user",pwd:"travis_mongo_pass",roles:[{role:"readWrite",db:"test_database"}]});'
 script:
   make test

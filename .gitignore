@@ -18,6 +18,7 @@ coverage/
 # Logs
 *.log
 npm-debug.log*
+logs/
 
 # Archives
 *.bz2
