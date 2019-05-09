@@ -1,3 +1,3 @@
 export default interface IGreeter {
-  greet(name: string): string
+  greet(): string
 }

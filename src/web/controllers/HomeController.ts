@@ -10,6 +10,6 @@ export class HomeController {
 
   @httpGet('/')
   public get(): string {
-    return this.greeter.greet('Home')
+    return this.greeter.greet()
   }
 }
