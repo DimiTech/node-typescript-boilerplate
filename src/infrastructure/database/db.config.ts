@@ -1,9 +1,9 @@
 export interface IDBConfig {
-  host: string
-  user: string
-  pass: string
-  port: number
-  dbName: string
+  readonly host: string
+  readonly user: string
+  readonly pass: string
+  readonly port: number
+  readonly dbName: string
 }
 
 export const DBConfig: IDBConfig = {
@@ -11,5 +11,5 @@ export const DBConfig: IDBConfig = {
   user: process.env.DB_USER || 'root',
   pass: process.env.DB_PASS || 'example',
   port: parseInt(process.env.DB_PORT || '27017', 10),
-  dbName: process.env.DB_NAME || 'test-db',
+  dbName: process.env.DB_NAME || 'admin',
 }
