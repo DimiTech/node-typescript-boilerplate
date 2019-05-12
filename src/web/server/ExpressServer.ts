@@ -42,8 +42,8 @@ export default class ExpressServer implements IServer {
         }),
       ])
     })
+    this.server.setErrorConfig(app => app.use(this.errorHandler))
     this.serverInstance = this.server.build()
-    this.serverInstance.use(this.errorHandler)
   }
 
   public start() {
