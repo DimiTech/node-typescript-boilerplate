@@ -21,6 +21,8 @@ A starting point for Node.js projects written in TypeScript.
   - inversify-express-utils
   - Logging
   - Validation & input type checking
+* Security
+  - Helmet
 * Test automation
   - Unit tests (mocha, chai, sinon)
   - Integration Testing Harness (supertest)

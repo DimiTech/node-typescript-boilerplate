@@ -1,6 +1,7 @@
 import { injectable } from 'inversify'
 import * as Express from 'express'
 import { InversifyExpressServer } from 'inversify-express-utils'
+import * as helmet from 'helmet'
 import * as bodyParser from 'body-parser'
 import * as winston from 'winston'
 import * as expressWinston from 'express-winston'
@@ -23,6 +24,7 @@ export default class ExpressServer implements IServer {
     this.server = new InversifyExpressServer(container)
     this.server.setConfig((app) => {
       app.use([
+        helmet(),
         bodyParser.urlencoded({ extended: true }),
         bodyParser.json(),
         expressWinston.logger({
