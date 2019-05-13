@@ -1,6 +1,7 @@
 import { injectable } from 'inversify'
 import { Db, MongoClient } from 'mongodb'
 
+import Logger from '@infrastructure/logging/Logger'
 import IDBConnection from '@infrastructure/database/IDBConnection'
 import { DBConfig } from '@infrastructure/database/db.config'
 
@@ -18,7 +19,6 @@ export default class MongoDBConnection implements IDBConnection {
     if (MongoDBConnection.instance) {
       return MongoDBConnection.instance
     }
-    this.getConnection()
     MongoDBConnection.instance = this
   }
 
@@ -26,18 +26,18 @@ export default class MongoDBConnection implements IDBConnection {
     return this.db
   }
 
-  public async connect(): Promise<{ error: Error | null, db?: Db | null }> {
+  public async connect(): Promise<Db> {
     if (this.isConnected) {
-      return { error: null, db: this.db }
+      return this.db
     }
     try {
       const client = await MongoClient.connect(connectionString, { useNewUrlParser: true })
       this.db = client.db(databaseName)
       this.isConnected = true
-      process.stdout.write('MongoDB Connected!\n')
-      return { error: null, db: this.db }
+      Logger.log('MongoDB Connected!')
+      return this.db
     } catch (e) {
-      return { error: e }
+      throw e
     }
   }
 }
