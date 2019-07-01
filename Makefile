@@ -100,3 +100,6 @@ ifeq ($(ENVIRONMENT), production)
 else
 	docker-compose -f docker-compose.development.yml down --remove-orphans
 endif
+
+.PHONY: compose-restart
+compose-restart: compose-down compose-up
