@@ -84,6 +84,25 @@ make
 make compose-up
 ```
 
+## Run tests:
+
+Since there are integration tests in the test suite, the `docker-compose.development.yml`
+containers need to be up and running because the integration tests need to
+connect to a `MongoDB` server.
+
+After the development compose containers are up, temporarily change set
+`DB_HOST=localhost` in your `.env` and run:
+
+```
+make test
+```
+
+This is unfortunately necessary since the `mongo` docker container doesn't offer
+much flexibility and we have to integrate with TravisCI at the same time as
+well.
+
+TODO: Find a more elegant solution to this!
+
 ## How-To
 
 ### Change App Environment
