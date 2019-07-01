@@ -65,11 +65,11 @@ COMPANY_NAME=company     # Used for Docker image tagging and deployment director
 APP_NAME=nodejs-app      # Used for Docker image tagging and deployment directory creation
 ENVIRONMENT=development  # Used to determine which Docker image to use
 PORT=1338                # Port that the app will be exposed on
-DB_USER=test             # Database username
-DB_PASS=test             # Database password
+DB_USER=root             # Database username
+DB_PASS=example          # Database password
 DB_HOST=mongo            # Database hostname
 DB_PORT=27017            # Database port
-DB_NAME=nodejs-app       # Database name
+DB_NAME=admin            # Database name
 ```
 
 ## Run it:
