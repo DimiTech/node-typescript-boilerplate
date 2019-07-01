@@ -1,3 +1,6 @@
+import * as dotenv from 'dotenv'
+dotenv.config()
+
 process.env.ENVIRONMENT = 'testing'
 
 import * as Express from 'express'
