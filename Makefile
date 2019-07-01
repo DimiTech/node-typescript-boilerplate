@@ -92,3 +92,11 @@ ifeq ($(ENVIRONMENT), production)
 else
 	docker-compose -f docker-compose.development.yml up --build
 endif
+
+.PHONY: compose-down
+compose-down:
+ifeq ($(ENVIRONMENT), production)
+	docker-compose -f docker-compose.yml down --remove-orphans
+else
+	docker-compose -f docker-compose.development.yml down --remove-orphans
+endif
