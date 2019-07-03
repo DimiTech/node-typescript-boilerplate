@@ -14,6 +14,15 @@ import MongoDBConnection from '@infrastructure/database/mongodb/MongoDBConnectio
 const expressServer: IServer = new ExpressServer()
 const mongoDBConnection: IDBConnection = new MongoDBConnection()
 const app: App = new App(expressServer, mongoDBConnection)
-app.run()
 
-export const server: Express.Application = expressServer.getServerObject()
+let server: Express.Application
+
+export async function getServerInstance(): Promise<Express.Application> {
+  if (!server) {
+    await app.run()
+    server = expressServer.getServerObject()
+    return server
+  } else {
+    return server
+  }
+}

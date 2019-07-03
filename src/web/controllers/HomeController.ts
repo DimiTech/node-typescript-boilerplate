@@ -1,15 +1,17 @@
-import { inject } from 'inversify'
-import { controller, httpGet } from 'inversify-express-utils'
+import { injectable, inject } from 'inversify'
+import { Request, Response } from 'express'
+import { Controller, Get } from '@overnightjs/core'
 
 import { TYPES } from '@infrastructure/inversify.config'
 import IGreeter from '@domain/services/IGreeter'
 
-@controller('/')
+@injectable()
+@Controller('/')
 export class HomeController {
   constructor(@inject(TYPES.IGreeter) private greeter: IGreeter) {}
 
-  @httpGet('/')
-  public get(): string {
-    return this.greeter.greet()
+  @Get()
+  public get(_req: Request, res: Response) {
+    return res.end(this.greeter.greet())
   }
 }

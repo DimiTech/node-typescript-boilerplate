@@ -1,10 +1,16 @@
 import { expect } from 'chai'
 import * as request from 'supertest'
 
-import { server } from '@test/integration/Server.test'
+import { getServerInstance } from '@test/integration/Server.test'
 import User from '@domain/entities/User'
 
 const BASE_PATH = '/users'
+
+let server: any
+
+before(async () => {
+  server = await getServerInstance()
+})
 
 describe(BASE_PATH, () => {
   const usersForInsertion: User[] = [

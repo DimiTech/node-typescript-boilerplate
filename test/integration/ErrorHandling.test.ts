@@ -1,7 +1,13 @@
 import { expect } from 'chai'
 import * as request from 'supertest'
 
-import { server } from '@test/integration/Server.test'
+import { getServerInstance } from '@test/integration/Server.test'
+
+let server: any
+
+before(async () => {
+  server = await getServerInstance()
+})
 
 describe('Web API global error handling', () => {
   it('Returns a 404 when requesting non-existent endpoints', done => {

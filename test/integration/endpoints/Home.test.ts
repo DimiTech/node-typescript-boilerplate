@@ -2,7 +2,13 @@ import { expect } from 'chai'
 import * as request from 'supertest'
 
 import * as packageJson from '../../../package.json'
-import { server } from '@test/integration/Server.test'
+import { getServerInstance } from '@test/integration/Server.test'
+
+let server: any
+
+before(async () => {
+  server = await getServerInstance()
+})
 
 describe('/', () => {
   describe('GET /', () => {

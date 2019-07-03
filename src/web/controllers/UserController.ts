@@ -1,16 +1,13 @@
-import { inject } from 'inversify'
-import { /*Request,*/ Response } from 'express'
+import { injectable, inject } from 'inversify'
+import { Request, Response } from 'express'
 import {
-  controller,
-  BaseHttpController,
-  requestBody,
-  requestParam,
-  response,
-  httpGet,
-  httpPost,
-  httpPut,
-  httpDelete,
-} from 'inversify-express-utils'
+  Controller,
+  Middleware,
+  Get,
+  Post,
+  Put,
+  Delete,
+} from '@overnightjs/core'
 
 import { TYPES } from '@infrastructure/inversify.config'
 import UserService from '@app/services/UserService'
@@ -18,61 +15,52 @@ import IUser from '@domain/entities/IUser'
 import User from '@domain/entities/User'
 import Validator from '@web/middleware/Validator'
 
-@controller('/users')
-export class UserController extends BaseHttpController {
-  constructor(@inject(TYPES.UserService) private userService: UserService) {
-    super()
-  }
+@injectable()
+@Controller('users')
+export class UserController {
+  constructor(@inject(TYPES.UserService) private userService: UserService) {}
 
-  @httpPost('/', Validator(User))
-  public async newUser(
-    @response() res: Response,
-    @requestBody() newUser: IUser,
-  ) {
+  @Post()
+  @Middleware(Validator(User))
+  public async newUser(req: Request, res: Response) {
+    const newUser: IUser = req.body
     const createdUser = await this.userService.newUser(newUser)
     return res.status(201).json(createdUser)
   }
 
-  @httpGet('/')
-  public async getUsers(): Promise<IUser[]> {
-    return await this.userService.getUsers()
+  @Get()
+  public async getUsers(_req: Request, res: Response) {
+    const users: IUser[] = await this.userService.getUsers()
+    return res.json(users)
   }
 
-  @httpGet('/:id')
-  public async getUser(
-    @response() res: Response,
-    @requestParam('id') id: number,
-  ) {
-    id = +id
+  @Get(':id')
+  public async getUser(req: Request, res: Response) {
+    const id: number = +req.params.id
     if (typeof id !== 'number') {
       return res.status(400).json({ id })
     }
-    return await this.userService.getUser(id)
+    return res.json(await this.userService.getUser(id))
   }
 
-  @httpPut('/:id', Validator(User))
-  public async updateUser(
-    @response() res: Response,
-    @requestParam('id') id: number,
-    @requestBody() user: IUser,
-  ) {
-    id = +id
+  @Put(':id')
+  @Middleware(Validator(User))
+  public async updateUser(req: Request, res: Response) {
+    const id: number = +req.params.id
+    const user: IUser = req.body
     if (typeof id !== 'number') {
       return res.status(400).json({ id })
     }
-    return await this.userService.updateUser(id, user)
+    return res.json(await this.userService.updateUser(id, user))
   }
 
-  @httpDelete('/:id')
-  public async deleteUser(
-    @response() res: Response,
-    @requestParam('id') id: number,
-  ) {
-    id = +id
+  @Delete(':id')
+  public async deleteUser(req: Request, res: Response) {
+    const id: number = +req.params.id
     if (typeof id !== 'number') {
       return res.status(400).json({ id })
     }
     const removedId = await this.userService.deleteUser(id)
-    return { id: removedId }
+    return res.json({ id: removedId })
   }
 }

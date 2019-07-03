@@ -18,7 +18,7 @@ A starting point for Node.js projects written in TypeScript.
   - Multi-Stage Build
   - docker-compose (production, development)
 * Elegant Web Interface
-  - inversify-express-utils
+  - OvernightJS (Express integration)
   - Logging
   - Validation & input type checking
 * Security
