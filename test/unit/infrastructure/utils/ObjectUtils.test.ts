@@ -1,4 +1,5 @@
 import { expect } from 'chai'
+import { Expose } from 'class-transformer'
 
 import { plainToInstance } from '@infrastructure/utils/ObjectUtils'
 
@@ -9,11 +10,18 @@ interface ITestUser {
   getName(): string
 }
 class TestUser implements ITestUser {
+  @Expose() public id: number
+  @Expose() public email: string
+  @Expose() public name: string
   constructor(
-    public id: number,
-    public email: string,
-    public name: string,
-  ) {}
+    id: number,
+    email: string,
+    name: string,
+  ) {
+    this.id = id
+    this.email = email
+    this.name = name
+  }
   public getName() {
     return this.name
   }
@@ -32,7 +40,6 @@ describe('makeClassInstance', () => {
     expect(instance.getName()).to.equal('Test')
   })
 
-  // TODO: class-transform needs to be updated to enable this test
   it.skip('Prunes the extraneous values', () => {
     const plainUser = {
       _id: '5cc21e6350c9be006c4336cd',

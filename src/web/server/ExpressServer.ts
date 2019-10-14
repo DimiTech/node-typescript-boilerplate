@@ -22,6 +22,7 @@ export default class ExpressServer implements IServer {
 
   constructor() {
     this.server = new InversifyExpressServer(container)
+    // this.server = new InversifyExpressServer(container, null, null, null, authProvider)
     this.server.setConfig((app) => {
       app.use([
         helmet(),
